@@ -11,9 +11,9 @@ from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
 
-nadya = LINE()
+#nadya = LINE()
 #nadya = LINE("TOKEN KAMU")
-#nadya = LINE("Email","Password")
+nadya = LINE("susu76917@gmail.com","nunu_2018")
 nadya.log("Auth Token : " + str(nadya.authToken))
 channelToken = nadya.getChannelResult()
 nadya.log("Channel Token : " + str(channelToken))
