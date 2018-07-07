@@ -78,37 +78,30 @@ class Talk(object):
         @text String
         @dataMid List of user Mid
     """
+    
     @loggedIn
-    def sendMessageWithMention(self, to, text='', dataMid=[]):
-        arr = []
-        list_text=''
-        if '[list]' in text.lower():
-            i=0
-            for l in dataMid:
-                list_text+='\n@[list-'+str(i)+']'
-                i=i+1
-            text=text.replace('[list]', list_text)
-        elif '[list-' in text.lower():
-            text=text
-        else:
-            i=0
-            for l in dataMid:
-                list_text+=' @[list-'+str(i)+']'
-                i=i+1
-            text=text+list_text
-        i=0
-        for l in dataMid:
-            mid=l
-            name='@[list-'+str(i)+']'
-            ln_text=text.replace('\n',' ')
-            if ln_text.find(name):
-                line_s=int(ln_text.index(name))
-                line_e=(int(line_s)+int(len(name)))
-            arrData={'S': str(line_s), 'E': str(line_e), 'M': mid}
+    def sendText(self, Tomid, text):
+        msg = Message()
+        msg.to = Tomid
+        msg.text = text
+
+        return self.talk.sendMessage(0, msg)
+        
+    @loggedIn
+    def sendMessageWithMention(self, to, mid, firstmessage, lastmessage):
+        try:
+            arrData = ""
+            text = "%s " %(str(firstmessage))
+            arr = []
+            mention = "@x "
+            slen = str(len(text))
+            elen = str(len(text) + len(mention) - 1)
+            arrData = {'S':slen, 'E':elen, 'M':mid}
             arr.append(arrData)
-            i=i+1
-        contentMetadata={'MENTION':str('{"MENTIONEES":' + json.dumps(arr).replace(' ','') + '}')}
-        return self.sendMessage(to, text, contentMetadata)
+            text += mention + str(lastmessage)
+            self.sendMessage(to,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        except Exception as error:
+            print(error)
 
     @loggedIn
     def sendSticker(self, to, packageId, stickerId):
@@ -202,7 +195,6 @@ class Talk(object):
     def sendImageWithURL(self, to, url):
         path = self.downloadFileURL(url, 'path')
         return self.sendImage(to, path)
-        return self.deleteFile(path)
 
     @loggedIn
     def sendGIF(self, to, path):
@@ -212,7 +204,6 @@ class Talk(object):
     def sendGIFWithURL(self, to, url):
         path = self.downloadFileURL(url, 'path')
         return self.sendGIF(to, path)
-        return self.deleteFile(path)
 
     @loggedIn
     def sendVideo(self, to, path):
@@ -223,7 +214,6 @@ class Talk(object):
     def sendVideoWithURL(self, to, url):
         path = self.downloadFileURL(url, 'path')
         return self.sendVideo(to, path)
-        return self.deleteFile(path)
 
     @loggedIn
     def sendAudio(self, to, path):
@@ -234,7 +224,6 @@ class Talk(object):
     def sendAudioWithURL(self, to, url):
         path = self.downloadFileURL(url, 'path')
         return self.sendAudio(to, path)
-        return self.deleteFile(path)
 
     @loggedIn
     def sendFile(self, to, path, file_name=''):
@@ -248,7 +237,6 @@ class Talk(object):
     def sendFileWithURL(self, to, url, fileName=''):
         path = self.downloadFileURL(url, 'path')
         return self.sendFile(to, path, fileName)
-        return self.deleteFile(path)
 
     """Contact"""
         
