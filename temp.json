@@ -1,31 +1,45 @@
 {
-    "autoAdd": false,
-    "autoJoin": true,
-    "autoJoinTicket": false,
+    "KIEBOT1": "\n[ยังไม่มีข้อความเข้า]",
+    "KIEBOT2": "\n[ยังไม่มีข้อความออก]",
+    "Lv": false,
+    "Wc": false,
+    "autoAdd": true,
+    "autoCancel": {
+        "members": 10,
+        "on": true
+    },
+    "autoJoin": false,
     "autoLeave": false,
     "autoRead": false,
-    "blacklist": {
-        "uf6b0fecdf26459e6a48b5a387c1144d2": true
-    },
-    "canceljoin": false,
-    "cancelprotect": false,
-    "changeGroupPicture": {},
-    "changePicture": {},
+    "blacklist": {},
+    "cName": "",
+    "cNames": "",
     "checkSticker": false,
+    "clock": false,
+    "comment": "Thanks for add me",
+    "comment1": "tset",
+    "commentBlack": {},
+    "contact": false,
     "dblack": false,
-    "dblacklist": false,
-    "detectMention": false,
-    "inviteprotect": false,
-    "keyCommand": "",
-    "kickjoin": false,
+    "dblacklist": {},
+    "detectMention": true,
+    "detectMention2": true,
+    "invite": {},
     "lang": "JP",
+    "leaveRoom": false,
+    "message": "บัญชีนี้ได้การป้องกันโดย PZGuard ระบบได้ทำการบล็อคคุณอัตโนมัติ",
     "mimic": {
         "copy": false,
         "status": false,
         "target": {}
     },
-    "protect": false,
-    "qrprotect": false,
+    "pname": {},
+    "pnharfbot": {},
+    "potoMention": false,
+    "pro_name": {},
+    "tag1": "\n[─┅═✥KIEBOTLINE✥═┅─",
+    "tag2": "\n[ราคาเซลฟ์บอทตามจำนวนคิกเกอรสั่งทำเฉพาะเซลบอทกันรัน 250 บาทเชลฟ์บอท+kicker  แค่เชลฟ์บอท300 เพิ่มkickerได้4ตัว 1 คิก 50 บาท 2 คิก 100 บาท 3 คิก 150 บาท 4 คิก 200 บาท]",
+    "timeline": true,
     "userAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
         "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
@@ -49,5 +63,6 @@
         "Mozilla/5.0 (Windows NT 5.0; rv:5.0) Gecko/20100101 Firefox/5.0"
     ],
     "wblack": false,
-    "wblacklist": false
+    "wblacklist": {},
+    "winvite": false
 }
