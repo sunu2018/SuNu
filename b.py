@@ -13,7 +13,7 @@ botStart = time.time()
 
 #nadya = LINE()
 #nadya = LINE("TOKEN KAMU")
-nadya = LINE("bot3nu2018@gmail.com","nunu_kap2018")
+nadya = LINE("su4nu2018@gmail.com","nunu_kap2018")
 nadya.log("Auth Token : " + str(nadya.authToken))
 channelToken = nadya.getChannelResult()
 nadya.log("Channel Token : " + str(channelToken))
